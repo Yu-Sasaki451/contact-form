@@ -15,3 +15,7 @@ Laravel 環境構築
 ・composer install
 ・cp .env.example .env. ,環境変数は適宜変更
 ・php artisan key:generate
+
+![ER Diagram][def]
+
+[def]: public/er.png
