@@ -34,7 +34,7 @@ services:
         environment:
             - PMA_ARBITRARY=1
             - PMA_HOST=mysql
-            - PMA_USER= user-admin
+            - PMA_USER=user-admin
             - PMA_PASSWORD=mysqlpass
         depends_on:
             - mysql
