@@ -1,0 +1,10 @@
+cat > .gitignore <<'EOF'
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Docker (プロジェクト方針次第で調整)
+docker/mysql/data/
+EOF
