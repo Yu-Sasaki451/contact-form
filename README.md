@@ -17,4 +17,4 @@ Laravel 環境構築
 ・php artisan key:generate
 
 #er
-![ER Diagram]()./public/er.png)
+![ER Diagram](./public/er.png)
