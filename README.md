@@ -16,5 +16,5 @@ Laravel 環境構築
 ・cp .env.example .env. ,環境変数は適宜変更
 ・php artisan key:generate
 
-#er
+#ER
 ![ER Diagram](src/public/er.svg)
