@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+
+.header {
+    height: 100px;
+    padding: 8px 12px;
+    border-bottom: 2px solid gainsboro;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 30px;
+    color: rgb(131, 121, 121);
+}

@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+.contact-form {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-form__header {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-form__content {
+    width: 700px;
+    margin: 0 auto;
+    padding: 8px 12px;
+}
+
+.form__group {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: start;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.form__button {
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8px 12px;
+    margin-top: 40px;
+}
+
+.form__label {
+    color: rgb(115, 104, 104);
+}
+
+.required-mark {
+    color: crimson;
+}
+
+input,select,textarea {
+    background-color: rgba(241, 241, 241, 0.865);
+    color: rgb(115, 104, 104);
+    border: none;
+    border-radius: 3px;
+    padding: 8px 20px;
+}
+
+.input__tel {
+    width: 90px;
+}

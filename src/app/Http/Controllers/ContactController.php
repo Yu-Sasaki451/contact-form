@@ -8,5 +8,8 @@ use App\Models\Category;
 
 class ContactController extends Controller
 {
-    //
+    public function index(){
+        return view('index');
+    }
+
 }
