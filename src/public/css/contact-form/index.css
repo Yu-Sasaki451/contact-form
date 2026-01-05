@@ -28,7 +28,22 @@
     grid-template-columns: 180px 1fr;
     align-items: start;
     gap: 80px;
-    margin-top: 20px;
+    margin-top: 12px;
+}
+
+.form__group-input {
+    display: flex;
+    gap: 24px;
+}
+
+.form__input-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input-tel {
+    display: flex;
+    flex-direction: column;
 }
 
 .form__button {
@@ -56,4 +71,11 @@ input,select,textarea {
 
 .input__tel {
     width: 90px;
+}
+
+.form__error {
+    color: red;
+    font-size: 10px;
+    min-height: 14px;
+    display: block;
 }
