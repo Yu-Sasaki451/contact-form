@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+.confirm-form {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.confirm-form__header {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.confirm-form__logo {
+    color: rgb(115, 104, 104);
+}
+
+.confirm-form__content {
+    width: 700px;
+    margin: 0 auto;
+    padding: 8px 12px;
+}
+
+.confirm-form__table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid gainsboro;
+}
+
+.table-row {
+    border: 1px solid gainsboro;
+}
+
+.table-row__header {
+    text-align: start;
+    width: 200px;
+    padding: 12px 20px;
+    color:rgb(254, 255, 240);
+    background-color: rgb(194, 182, 182);
+    font-weight: 300;
+}
+
+.table-row__content {
+    padding: 12px 32px;
+    color: rgb(115, 104, 104);
+}
+
+.confirm-form__button {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8px 16px;
+    margin-top: 50px;
+}
+
+.confirm-form__button--submit {
+    width: 80px;
+    background-color: rgb(194, 182, 182);
+    color: rgb(254, 255, 240);
+    border: none;
+    border-radius: 3px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.back__link {
+    width: 80px;
+    background-color: rgb(243, 239, 239);
+    color: rgb(115, 104, 104);
+    border-radius: 3px;
+    padding: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}

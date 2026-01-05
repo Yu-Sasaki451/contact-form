@@ -7,10 +7,11 @@
 @section('content')
     <div class="contact-form">
         <div class="contact-form__header">
-            <h2>Contact</h2>
+            <h2 class="contact-form__logo">Contact</h2>
         </div>
         <div class="contact-form__content">
-            <form class="form" action="">
+            <form class="form" action="/contact/confirm" method="post">
+                @csrf
                 <div class="form__group">
                     <div class="form__group-title">
                         <label class="form__label" for="last_name">
@@ -20,8 +21,11 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-text">
-                            <input id="last_name" name="last_name" type="text" placeholder="例：山田">
-                            <input id="first_name" name="first_name" type="text" placeholder="例：太郎">
+                            <input id="last_name" name="last_name" type="text"
+                            placeholder="例：山田" value="{{ old('last_name',$contacts['last_name'] ?? '') }}">
+
+                            <input id="first_name" name="first_name" type="text"
+                            placeholder="例：太郎" value="{{ old('first_name',$contacts['first_name'] ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -33,12 +37,17 @@
                         </label>
                     </div>
                     <div class="form__group-radio">
+                        @php
+                                $selectedGender = (string) old('gender', $contacts['gender'] ?? '');
+                            @endphp
                         <div class="form__input-radio">
-                            <input name="gender" type="radio" value="1">
+                            <input type="radio" name="gender" value="1" {{ $selectedGender === '1' ? 'checked' : '' }}>
                             <span>男性</span>
-                            <input name="gender" type="radio" value="2">
+
+                            <input type="radio" name="gender" value="2" {{ $selectedGender === '2' ? 'checked' : '' }}>
                             <span>女性</span>
-                            <input name="gender" type="radio" value="3">
+
+                            <input type="radio" name="gender" value="3" {{ $selectedGender === '3' ? 'checked' : '' }}>
                             <span>その他</span>
                         </div>
                     </div>
@@ -52,7 +61,8 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-text">
-                            <input id="email" name="email" type="email" placeholder="例：test@forexample.com">
+                            <input id="email" name="email" type="email"
+                            placeholder="例：test@forexample.com" value="{{ old('email',$contacts['email'] ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -65,11 +75,18 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-text">
-                            <input class="input__tel" id="tel_1" name="tel" type="tel" placeholder="080">
-                            <span>-</span>
-                            <input class="input__tel" id="tel_2" name="tel" type="tel" placeholder="1234">
-                            <span>-</span>
-                            <input class="input__tel" id="tel_3" name="tel" type="tel" placeholder="6789">
+                            <input class="input__tel" id="tel_1" name="tel_1" type="tel"
+                            placeholder="080" value="{{ old('tel_1',$contacts['tel_1'] ?? '') }}">
+                            <span>
+                                -
+                            </span>
+                            <input class="input__tel" id="tel_2" name="tel_2" type="tel"
+                            placeholder="1234" value="{{ old('tel_2',$contacts['tel_2'] ?? '') }}">
+                            <span>
+                                -
+                            </span>
+                            <input class="input__tel" id="tel_3" name="tel_3" type="tel"
+                            placeholder="6789" value="{{ old('tel_3',$contacts['tel_3'] ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -82,7 +99,8 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-text">
-                            <input id="address" name="address" type="text" placeholder="北海道札幌市白石区菊水1-2-3">
+                            <input id="address" name="address" type="text"
+                            placeholder="北海道札幌市白石区菊水1-2-3" value="{{ old('address',$contacts['address'] ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -94,7 +112,8 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-text">
-                            <input id="building" name="building" type="text" placeholder="〇〇マンション501号室">
+                            <input id="building" name="building" type="text"
+                            placeholder="〇〇マンション501号室" value="{{ old('building',$contacts['building'] ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -105,12 +124,23 @@
                             <span class="required-mark">※</span>
                         </label>
                     </div>
-                    <div class="form__group-input">
-                        <div class="form__input-select">
-                            <select name="category_id" id="category_id">
-                                <option value=""></option> <!--カテゴリテーブルから-->
-                            </select>
-                        </div>
+                    <div class="form__input-select">
+                    @php
+                        $selectedCategoryId = (string) old('category_id', $contacts['category_id'] ?? '');
+                    @endphp
+
+                    <select name="category_id" id="category_id">
+                        <option value="" {{ $selectedCategoryId === '' ? 'selected' : '' }}>
+                            選択してください
+                        </option>
+
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}"
+                            {{ $selectedCategoryId === (string) $category->id ? 'selected' : '' }}>
+                            {{ $category->content }}
+                        </option>
+                        @endforeach
+                    </select>
                     </div>
                 </div>
                 <div class="form__group">
@@ -122,7 +152,8 @@
                     </div>
                     <div class="form__group-input">
                         <div class="form__input-textarea">
-                            <textarea id="detail" name="detail" type="text" placeholder="お問い合わせ内容をご入力ください"></textarea>
+                            <textarea id="detail" name="detail" type="text"
+                            placeholder="お問い合わせ内容をご入力ください">{{ old('detail',$contacts['detail'] ?? '') }}</textarea>
                         </div>
                     </div>
                 </div>

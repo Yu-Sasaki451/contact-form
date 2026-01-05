@@ -15,4 +15,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact/confirm', [ContactController::class, 'confirm']);
+Route::post('/contact/store', [ContactController::class, 'store']);
+Route::get('/contact/thanks', [ContactController::class, 'thanks']);
