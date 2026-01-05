@@ -22,14 +22,6 @@ class ContactRequest extends FormRequest
      * @return array
      */
 
-    protected function prepareForValidation(): void{
-    $this->merge([
-        'tel' => ($this->tel_1 ?? '') . ($this->tel_2 ?? '') . ($this->tel_3 ?? ''),
-    ]);
-    }
-
-
-
     public function rules()
     {
         return [
@@ -37,7 +29,9 @@ class ContactRequest extends FormRequest
             'first_name' => 'required | string |max:8',
             'gender' => 'required | in:1,2,3',
             'email' => 'required | email',
-            'tel' => 'required | regex:/^\d+$/| max:5',
+            'tel_1' => 'required | regex:/^\d+$/| max:5',
+            'tel_2' => 'required | regex:/^\d+$/| max:5',
+            'tel_3' => 'required | regex:/^\d+$/| max:5',
             'address' => 'required',
             'category_id' => 'required | in:1,2,3,4,5',
             'detail' => 'required | max:120',
@@ -52,13 +46,19 @@ class ContactRequest extends FormRequest
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'tel.required' => '電話番号を入力してください',
-            'tel.regex:/^\d+$/' => '電話番号は半角英数字で入力してください',
-            'tel.max:5' => '電話番号は5桁まで数字で入力してください',
+            'tel_1.required' => '電話番号を入力してください',
+            'tel_1.regex' => '電話番号は半角英数字で入力してください',
+            'tel_1.max' => '電話番号は5桁まで数字で入力してください',
+            'tel_2.required' => '電話番号を入力してください',
+            'tel_2.regex' => '電話番号は半角英数字で入力してください',
+            'tel_2.max' => '電話番号は5桁まで数字で入力してください',
+            'tel_3.required' => '電話番号を入力してください',
+            'tel_3.regex' => '電話番号は半角英数字で入力してください',
+            'tel_3.max' => '電話番号は5桁まで数字で入力してください',
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせの内容を入力してください',
-            'detail.max:120' => 'お問い合わせ内容は120文字以内で入力してください',
+            'detail.max' => 'お問い合わせ内容は120文字以内で入力してください',
         ];
     }
 }

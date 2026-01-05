@@ -102,7 +102,9 @@
                             placeholder="6789" value="{{ old('tel_3',$contacts['tel_3'] ?? '') }}">
                         </div>
                         <p class="form__error">
-                            @error('tel') {{ $message }} @enderror
+                            @error('tel_1') {{ $message }} @enderror
+                            @error('tel_2') {{ $message }} @enderror
+                            @error('tel_3') {{ $message }} @enderror
                         </p>
                     </div>
                 </div>
