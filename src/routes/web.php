@@ -24,3 +24,4 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 
 Route::get('/register', [UserController::class, 'showRegister']);
 Route::get('/login', [UserController::class, 'showLogin']);
+Route::get('/admin', [UserController::class, 'showAdmin']);
