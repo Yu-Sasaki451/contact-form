@@ -13,7 +13,7 @@ class ContactController extends Controller
         $categories = Category::all();
         $contacts = session('contact-input', []);
 
-        return view('index',compact('categories','contacts'));
+        return view('contact-form.index',compact('categories','contacts'));
     }
 
     public function confirm(ContactRequest $request){
@@ -37,7 +37,7 @@ class ContactController extends Controller
     $contacts['category_content'] = $category?->content;
     $contacts['tel'] = $contacts['tel_1'].'-'.$contacts['tel_2'].'-'.$contacts['tel_3'];
 
-    return view('confirm',compact('contacts'));
+    return view('contact-form.confirm',compact('contacts'));
     }
 
     public function store(Request $request){
@@ -48,11 +48,11 @@ class ContactController extends Controller
 
     session()->forget('contact-input');
 
-    return redirect('/contact/thanks');
+    return redirect('/thanks');
     }
 
     public function thanks(){
-        return view('thanks');
+        return view('contact-form.thanks');
     }
 }
 

@@ -10,7 +10,7 @@
             <h2 class="contact-form__logo">Contact</h2>
         </div>
         <div class="contact-form__content">
-            <form class="form" action="/contact/confirm" method="post">
+            <form class="form" action="/confirm" method="post">
                 @csrf
                 <div class="form__group">
                     <div class="form__group-title">

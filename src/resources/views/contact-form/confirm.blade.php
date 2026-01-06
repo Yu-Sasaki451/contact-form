@@ -10,7 +10,7 @@
             <h2 class="confirm-form__logo">Confirm</h2>
         </div>
         <div class="confirm-form__content">
-            <form action="/contact/store" method="post">
+            <form action="/store" method="post">
                 @csrf
                 <table class="confirm-form__table">
                     <tr class="table-row">
@@ -83,7 +83,7 @@
                 @endforeach
                 <div class="confirm-form__button">
                     <button class="confirm-form__button--submit" type="submit">送信</button>
-                    <a class="back__link" href="/contact">修正</a>
+                    <a class="back__link" href="/">修正</a>
                 </div>
             </form>
         </div>

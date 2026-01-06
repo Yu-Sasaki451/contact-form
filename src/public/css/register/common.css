@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(249, 240, 228);
+}
+
+.header {
+    height: 100px;
+    padding: 8px 12px;
+    background-color: white;
+    border-bottom: 2px solid gainsboro;
+}
+
+.header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.header__logo {
+    justify-self: center;
+    font-size: 30px;
+    color: rgb(115, 104, 104);
+}
+
+.header__nav {
+    justify-self: end;
+    margin-right: 150px;
+    padding: 4px 24px;
+    background-color: rgba(241, 241, 241, 0.865);
+    border: 2px solid rgb(196, 169, 169);
+    border-radius: 3px;
+    cursor: pointer;
+}

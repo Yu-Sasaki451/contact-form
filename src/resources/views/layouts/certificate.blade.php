@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/contact-form/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register/common.css') }}">
     @yield('css')
 </head>
 <body>
     <header class="header">
         <div class="header__inner">
+            <div></div>
             <h1 class="header__logo">FashionablyLate</h1>
-        </div>
+            <nav class="header__nav">
+                @yield('nav')
+            </nav>
     </header>
     <main>
         @yield('content')

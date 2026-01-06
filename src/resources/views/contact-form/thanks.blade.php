@@ -11,7 +11,7 @@
     <div class="thanks">
         <div class="thanks-content">
             <p class="thanks-message">お問い合わせありがとうございました</p>
-            <a class="button-home" href="/contact">HOME</a>
+            <a class="button-home" href="/">HOME</a>
         </div>
     </div>
 </body>

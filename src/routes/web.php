@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,11 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/contact', [ContactController::class, 'index']);
-Route::post('/contact/confirm', [ContactController::class, 'confirm']);
-Route::post('/contact/store', [ContactController::class, 'store']);
-Route::get('/contact/thanks', [ContactController::class, 'thanks']);
+Route::get('/', [ContactController::class, 'index']);
+Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::post('/store', [ContactController::class, 'store']);
+Route::get('/thanks', [ContactController::class, 'thanks']);
+
+
+Route::get('/register', [UserController::class, 'showRegister']);
+Route::get('/login', [UserController::class, 'showLogin']);
