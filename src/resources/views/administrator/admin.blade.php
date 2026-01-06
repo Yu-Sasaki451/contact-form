@@ -47,7 +47,7 @@
                     <a class="export__link" href="">エクスポート</a>
                 </div>
                 <div class="action__item-right">
-                    <p>ページネーション</p>
+                    <p>{{ $contacts->onEachSide(1)->links('vendor.pagination.admin') }}</p>
                 </div>
             </div>
         </div>
@@ -61,11 +61,12 @@
                         <th>お問合せの種類</th>
                         <th></th>
                     </tr>
+                    @foreach($contacts as $contact)
                     <tr class="table__body-row">
-                        <td>山田太郎</td>
-                        <td>男性</td>
-                        <td>メアド</td>
-                        <td>その他</td>
+                        <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                        <td>{{ [1=>'男性',2=>'女性',3=>'その他'][(int)$contact->gender]}}</td>
+                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->category->content }}</td>
                         <td>
                             <form class="form-detail" action="">
                                 <input type="hidden" name="id" value>
@@ -73,6 +74,7 @@
                             </form>
                         </td>
                     </tr>
+                    @endforeach
                 </table>
             </form>
         </div>

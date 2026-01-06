@@ -124,3 +124,32 @@ th {
     border: 1px solid rgba(222, 195, 195, 0.6);
     border-radius: 3px;
 }
+
+/*   ページネーション設定   */
+
+.admin-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.admin-pagination__item {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e6dfda;
+    background: #fff;
+    color: #7b6f67;
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+
+.admin-pagination__item.is-active {
+    background: #6f625a;
+    border-color: #6f625a;
+    color: #fff;
+}

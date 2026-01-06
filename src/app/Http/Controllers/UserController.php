@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Contact;
 
 class UserController extends Controller
 {
@@ -16,6 +17,8 @@ class UserController extends Controller
     }
 
     public function showAdmin(){
-        return view('administrator.admin');
+        $contacts = Contact::with('category')->latest()->paginate(7);
+
+        return view('administrator.admin',compact('contacts'));
     }
 }
