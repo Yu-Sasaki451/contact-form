@@ -18,6 +18,7 @@ a {
 
 .admin-wrapper__header {
     text-align: center;
+    color: rgb(127, 91, 91);
 }
 
 .header__nav button {
@@ -123,15 +124,20 @@ th {
     color: antiquewhite;
 }
 
+td {
+    color: rgb(127, 91, 91);
+}
+
 .table__head-row {
     background-color: rgb(127, 91, 91);
 }
 
 .button__detail {
-    padding: 4px 16px;
+    padding: 6px 16px;
     background-color: rgba(241, 241, 241, 0.865);
     border: 1px solid rgba(222, 195, 195, 0.6);
     border-radius: 3px;
+    color: rgba(222, 195, 195, 0.6);
 }
 
 /*   ページネーション設定   */
@@ -161,4 +167,43 @@ th {
     background: #6f625a;
     border-color: #6f625a;
     color: #fff;
+}
+
+
+
+
+/* モーダル */
+.modal {
+    display: none;
+}
+
+.modal:target {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+
+.modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+}
+
+.modal__panel {
+    position: relative;
+    width: min(700px, 92vw);
+    max-height: 86vh;
+    overflow: auto;
+    background: #fff;
+    padding: 24px;
+    border: 1px solid #ddd;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
 }
