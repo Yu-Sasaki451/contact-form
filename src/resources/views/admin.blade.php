@@ -1,11 +1,14 @@
-@extends('layouts.certificate')
+@extends('layouts.auth')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/administrator/admin.css') }}">
 @endsection
 
 @section('nav')
-<a href="/register">logout</a>
+<form class="form__logout" action="/logout" method="post">
+    @csrf
+    <button class="header-nav__button">logout</button>
+</form>
 @endsection
 
 @section('content')

@@ -7,6 +7,14 @@ a {
     color: rgb(196, 169, 169);
 }
 
+.header__nav button {
+    border: none;
+    padding: 4px 20px;
+    font-size: 16px;
+    color: rgb(196, 169, 169);
+    cursor: pointer;
+}
+
 .login-content {
     width: 1000px;
     margin: 0 auto;
@@ -79,4 +87,10 @@ p {
     border-radius: 3px;
     color: rgb(252, 242, 228);
     cursor: pointer;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
 }

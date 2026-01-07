@@ -9,16 +9,16 @@ use App\Models\Contact;
 class UserController extends Controller
 {
     public function showRegister(){
-        return view('register.register');
+        return view('auth.register');
     }
 
     public function showLogin(){
-        return view('register.login');
+        return view('auth.login');
     }
 
     public function showAdmin(){
         $contacts = Contact::with('category')->latest()->paginate(7);
 
-        return view('administrator.admin',compact('contacts'));
+        return view('admin',compact('contacts'));
     }
 }

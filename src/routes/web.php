@@ -21,7 +21,4 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/store', [ContactController::class, 'store']);
 Route::get('/thanks', [ContactController::class, 'thanks']);
 
-
-Route::get('/register', [UserController::class, 'showRegister']);
-Route::get('/login', [UserController::class, 'showLogin']);
-Route::get('/admin', [UserController::class, 'showAdmin']);
+Route::get('/admin', [UserController::class, 'showAdmin'])->middleware('auth');
