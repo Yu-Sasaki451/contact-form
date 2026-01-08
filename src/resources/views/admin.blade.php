@@ -18,32 +18,46 @@
     </div>
 
     <div class="admin-search">
-        <div class="admin-search__item">
-            <div class="admin-search__item-flex">
-                <div class="search__item-name">
-                    <input class="search__input" type="text" placeholder="名前やメールアドレスを入力してください">
-                </div>
-                <div class="search__item-gender">
-                    <select class="search__select" name="" id="">
-                        <option value="">性別</option>
-                    </select>
-                </div>
-                <div class="search__item-category">
-                    <select class="search__select" name="" id="">
-                        <option value="">お問い合わせの種類</option>
-                    </select>
-                </div>
-                <div class="search__item-date">
-                    <input class="search__input" type="date" value="{{ request('date') }}" placeholder="年/月/日" readonly>
-                </div>
-                <div class="search__item-button">
-                    <button class="search__button">検索</button>
-                </div>
-                <div class="search__item-reset">
-                    <a class="search__button" href="">リセット</a>
+        <form action="/search" method="get">
+            <input type="hidden" name="search" value="1">
+            <div class="admin-search__item">
+                <div class="admin-search__item-flex">
+                    <div class="search__item-name">
+                        <input class="search__input" type="text" placeholder="名前やメールアドレスを入力してください">
+                    </div>
+                    <div class="search__item-gender">
+                        <select class="search__select" name="gender" id="gender">
+                            <option value="" {{ request('gender','') === '' ? 'selected' : '' }}>性別</option>
+                            <option value="1" {{ request('gender') === '1' ? 'selected' : '' }}>男性</option>
+                            <option value="2" {{ request('gender') === '2' ? 'selected' : '' }}>女性</option>
+                            <option value="3" {{ request('gender') === '3' ? 'selected' : '' }}>その他</option>
+                        </select>
+                    </div>
+                    <div class="search__item-category">
+                        <select class="search__select" name="category_id" id="category_id">
+                            <option value="" {{ $category_id === '' ? 'selected' : '' }}>
+                                お問い合わせの種類
+                            </option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ $category_id === (string) $category->id ? 'selected' : '' }}>
+                                    {{ $category->content }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="search__item-date">
+                        <input class="search__input" name="date" type="date" value="{{ $date }}" placeholder="年/月/日">
+                    </div>
+                    <div class="search__item-button">
+                        <button class="search__button">検索</button>
+                    </div>
+                    <div class="search__item-reset">
+                        <a class="search__button" href="/search/reset">リセット</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <div class="admin-action">
@@ -87,15 +101,45 @@
                         <a href="#" class="modal__close" aria-label="閉じる">×</a>
 
                         <dl class="modal__dl">
-                            <div class="modal__row"><dt>お名前</dt><dd>{{ $contact->last_name }} {{ $contact->first_name }}</dd></div>
-                            <div class="modal__row"><dt>性別</dt><dd>{{ [1=>'男性',2=>'女性',3=>'その他'][(int)$contact->gender] }}</dd></div>
-                            <div class="modal__row"><dt>メール</dt><dd>{{ $contact->email }}</dd></div>
-                            <div class="modal__row"><dt>電話</dt><dd>{{ $contact->tel }}</dd></div>
-                            <div class="modal__row"><dt>住所</dt><dd>{{ $contact->address }}</dd></div>
-                            <div class="modal__row"><dt>建物</dt><dd>{{ $contact->building }}</dd></div>
-                            <div class="modal__row"><dt>種類</dt><dd>{{ $contact->category->content }}</dd></div>
-                            <div class="modal__row"><dt>内容</dt><dd>{{ $contact->detail }}</dd></div>
+                            <div class="modal__row">
+                                <dt class="row__header">お名前</dt>
+                                <dd class="row__body">{{ $contact->last_name }} {{ $contact->first_name }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">性別</dt>
+                                <dd class="row__body">{{ [1=>'男性',2=>'女性',3=>'その他'][(int)$contact->gender] }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">メールアドレス</dt>
+                                <dd class="row__body">{{ $contact->email }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">電話番号</dt>
+                                <dd class="row__body">{{ $contact->tel }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">住所</dt>
+                                <dd class="row__body">{{ $contact->address }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">建物名</dt>
+                                <dd class="row__body">{{ $contact->building }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">お問い合わせの種類</dt>
+                                <dd class="row__body">{{ $contact->category->content }}</dd>
+                            </div>
+                            <div class="modal__row">
+                                <dt class="row__header">お問い合わせ内容</dt>
+                                <dd class="row__body">{{ $contact->detail }}</dd>
+                            </div>
                         </dl>
+                        <form action="/delete" method="post">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $contact->id }}">
+                            <button class="delete__button" type="submit">削除</button>
+                        </form>
                     </div>
                 </div>
                 @endpush

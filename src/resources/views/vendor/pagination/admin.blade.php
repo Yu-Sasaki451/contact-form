@@ -29,4 +29,10 @@
     @endif
 
 </nav>
+@else
+<nav class="admin-pagination" role="navigation" aria-label="Pagination Navigation">
+    <span class="admin-pagination__item is-disabled" aria-disabled="true">&lt;</span>
+    <span class="admin-pagination__item is-active" aria-current="page">1</span>
+    <span class="admin-pagination__item is-disabled" aria-disabled="true">&gt;</span>
+</nav>
 @endif

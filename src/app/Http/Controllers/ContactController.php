@@ -54,5 +54,11 @@ class ContactController extends Controller
     public function thanks(){
         return view('contact-form.thanks');
     }
+
+    public function destroy(Request $request){
+        Contact::find($request->id)->delete();
+
+        return redirect('/admin');
+    }
 }
 

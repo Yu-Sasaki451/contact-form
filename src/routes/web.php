@@ -20,5 +20,8 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/store', [ContactController::class, 'store']);
 Route::get('/thanks', [ContactController::class, 'thanks']);
+Route::delete('/delete', [ContactController::class, 'destroy']);
 
 Route::get('/admin', [UserController::class, 'showAdmin'])->middleware('auth');
+Route::get('/search', [UserController::class, 'showAdmin'])->middleware('auth');
+Route::get('/search/reset', [UserController::class, 'resetAdmin'])->middleware('auth');
