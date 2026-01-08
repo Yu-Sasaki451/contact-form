@@ -130,6 +130,10 @@ td {
     font-size: 14px;
 }
 
+.table__body-row:hover {
+    background-color: rgba(241, 241, 241, 0.865);
+}
+
 .table__head-row {
     background-color: rgb(127, 91, 91);
 }
