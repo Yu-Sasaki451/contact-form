@@ -7,7 +7,7 @@ a {
     color: rgb(196, 169, 169);
 }
 
-.header__nav button {
+.auth-nav__button {
     border: none;
     padding: 4px 20px;
     font-size: 16px;
@@ -15,14 +15,14 @@ a {
     cursor: pointer;
 }
 
-.register-content__header {
+.register__header {
     width: 300px;
     margin: 0 auto;
     margin-top: 60px;
     text-align: center;
 }
 
-.register-content__logo {
+.register__title {
     color: rgb(115, 104, 104);
 }
 
@@ -31,14 +31,14 @@ a {
     place-items: center;
 }
 
-.register__form-content {
+.register__body {
     position: relative;
     width: 600px;
     height: 500px;
     background-color: white;
 }
 
-.content__center {
+.register__fields {
     position: absolute;
     top: 46%;
     left: 50%;
@@ -48,14 +48,14 @@ a {
     margin: 0 auto;
 }
 
-.form__content-item {
+.register__field {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
 }
 
-input {
+.register__input {
     width: 300px;
     height: 35px;
     background-color: rgba(241, 241, 241, 0.865);
@@ -63,12 +63,12 @@ input {
     border-radius: 3px;
 }
 
-p {
+register__label {
     margin: 0 0 4px;
     color: rgb(115, 104, 104);
 }
 
-.form-content__button {
+.register__button {
     position: absolute;
     left: 50%;
     bottom: 50px;
@@ -84,7 +84,7 @@ p {
     cursor: pointer;
 }
 
-.form__error {
+.register__error {
     height: 20px;
     color: #ff0000;
     text-align: left;

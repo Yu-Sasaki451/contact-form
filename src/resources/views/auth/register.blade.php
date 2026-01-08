@@ -5,49 +5,49 @@
 @endsection
 
 @section('nav')
-<form class="form__login" action="/login" method="get">
-    <button class="header-nav__button">login</button>
+<form class="auth-nav" action="/register" method="get">
+    <button class="auth-nav__button">login</button>
 </form>
 @endsection
 
 @section('content')
-    <div class="register-content">
-        <div class="register-content__header">
-            <h2 class="register-content__logo">Register</h2>
+    <div class="register">
+        <div class="register__header">
+            <h2 class="register__title">Register</h2>
         </div>
         <form class="register__form" action="/register" method="post" novalidate>
             @csrf
-            <div class="register__form-content">
-                <div class="content__center">
-                    <div class="form__content-item">
-                        <p>お名前</p>
-                        <input type="text" name="name" placeholder="例：山田 太郎" value="{{ old('name') }}">
-                        <div class="form__error">
+            <div class="register__body">
+                <div class="register__fields">
+                    <div class="register__field">
+                        <p class="register__label">お名前</p>
+                        <input class="register__input" type="text" name="name" placeholder="例：山田 太郎" value="{{ old('name') }}">
+                        <div class="register__error">
                             @error('name')
                             {{ $message }}
                             @enderror
                         </div>
                     </div>
-                    <div class="form__content-item">
-                        <p>メールアドレス</p>
-                        <input type="email" name="email" placeholder="例：test@forexample.com" value="{{ old('email') }}">
-                        <div class="form__error">
+                    <div class="register__field">
+                        <p class="register__label">メールアドレス</p>
+                        <input class="register__input" type="email" name="email" placeholder="例：test@forexample.com" value="{{ old('email') }}">
+                        <div class="register__error">
                             @error('email')
                             {{ $message }}
                             @enderror
                         </div>
                     </div>
-                    <div class="form__content-item">
-                        <p>パスワード</p>
-                        <input type="password" name="password" placeholder="例：coachtech1231" value="{{ old('password') }}">
-                        <div class="form__error">
+                    <div class="register__field">
+                        <p class="register__label">パスワード</p>
+                        <input class="register__input" type="password" name="password" placeholder="例：coachtech1231" value="{{ old('password') }}">
+                        <div class="register__error">
                             @error('password')
                             {{ $message }}
                             @enderror
                         </div>
                     </div>
                 </div>
-                <div class="form-content__button">
+                <div class="register__button">
                     <button class="register__button-submit" type="submit">登録</button>
                 </div>
             </div>

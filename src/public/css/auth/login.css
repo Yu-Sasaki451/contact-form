@@ -7,7 +7,7 @@ a {
     color: rgb(196, 169, 169);
 }
 
-.header__nav button {
+.auth-nav__button {
     border: none;
     padding: 4px 20px;
     font-size: 16px;
@@ -15,19 +15,19 @@ a {
     cursor: pointer;
 }
 
-.login-content {
+.login {
     width: 1000px;
     margin: 0 auto;
 }
 
-.login-content__header {
+.login__header {
     width: 300px;
     margin: 0 auto;
     margin-top: 60px;
     text-align: center;
 }
 
-.login-content__logo {
+.login__title {
     color: rgb(115, 104, 104);
 }
 
@@ -36,14 +36,14 @@ a {
     place-items: center;
 }
 
-.login__form-content {
+.login__body {
     position: relative;
     width: 600px;
     height: 400px;
     background-color: white;
 }
 
-.content__center {
+.login__fields {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -53,14 +53,14 @@ a {
     margin: 0 auto;
 }
 
-.form__content-item {
+.login__field {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
 }
 
-input {
+login__input {
     width: 300px;
     height: 35px;
     background-color: rgba(241, 241, 241, 0.865);
@@ -68,19 +68,19 @@ input {
     border-radius: 3px;
 }
 
-p {
+login__label {
     margin: 0 0 4px;
     color: rgb(115, 104, 104);
 }
 
-.form-content__button {
+.login__button {
     position: absolute;
     left: 50%;
     bottom: 50px;
     transform: translateX(-50%);
 }
 
-.login__button-submit {
+.login__button--submit {
     padding: 4px 28px;
     background-color: rgb(115, 104, 104);
     border: 1px solid rgb(115, 104, 104);
@@ -89,10 +89,10 @@ p {
     cursor: pointer;
 }
 
-.form__error {
+.login__error {
     height: 20px;
     color: #ff0000;
     text-align: left;
     margin-top: 5px;
-    font-size: 13px;
+    font-size: 14px;
 }

@@ -5,41 +5,41 @@
 @endsection
 
 @section('nav')
-<form class="form__login" action="/register" method="get">
-    <button class="header-nav__button">register</button>
+<form class="auth-nav" action="/register" method="get">
+    <button class="auth-nav__button">register</button>
 </form>
 @endsection
 
 @section('content')
-    <div class="login-content">
-        <div class="login-content__header">
-            <h2 class="login-content__logo">Login</h2>
+    <div class="login">
+        <div class="login__header">
+            <h2 class="login__title">Login</h2>
         </div>
         <form class="login__form" action="/login" method="post" novalidate>
             @csrf
-            <div class="login__form-content">
-                <div class="content__center">
-                    <div class="form__content-item">
-                        <p>メールアドレス</p>
-                        <input type="email" name="email" placeholder="例：test@forexample.com" value="{{ old('email') }}">
-                        <div class="form__error">
+            <div class="login__body">
+                <div class="login__fields">
+                    <div class="login__field">
+                        <p class="login__label">メールアドレス</p>
+                        <input class="login__input" type="email" name="email" placeholder="例：test@forexample.com" value="{{ old('email') }}">
+                        <div class="login__error">
                             @error('email')
                             {{ $message }}
                             @enderror
                         </div>
                     </div>
-                    <div class="form__content-item">
-                        <p>パスワード</p>
-                        <input type="password" name="password" placeholder="例：coachtech1231">
-                        <div class="form__error">
+                    <div class="login__field">
+                        <p class="login__label">パスワード</p>
+                        <input class="login__input" type="password" name="password" placeholder="例：coachtech1231">
+                        <div class="login__error">
                             @error('password')
                             {{ $message }}
                             @enderror
                         </div>
                     </div>
                 </div>
-                <div class="form-content__button">
-                    <button class="login__button-submit" type="submit">ログイン</button>
+                <div class="login__button">
+                    <button class="login__button--submit" type="submit">ログイン</button>
                 </div>
             </div>
         </form>
