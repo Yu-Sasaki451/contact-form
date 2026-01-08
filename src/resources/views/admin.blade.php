@@ -23,7 +23,8 @@
             <div class="admin-search__item">
                 <div class="admin-search__item-flex">
                     <div class="search__item-name">
-                        <input class="search__input" type="text" placeholder="名前やメールアドレスを入力してください">
+                        <input class="search__input" type="text"  name="keyword"
+                        value="{{ $keyword ?? '' }}"placeholder="名前やメールアドレスを入力してください">
                     </div>
                     <div class="search__item-gender">
                         <select class="search__select" name="gender" id="gender">
@@ -53,7 +54,7 @@
                         <button class="search__button">検索</button>
                     </div>
                     <div class="search__item-reset">
-                        <a class="search__button" href="/search/reset">リセット</a>
+                        <a class="search__button" href="/reset">リセット</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +64,7 @@
     <div class="admin-action">
         <div class="action__item-flex">
             <div class="action__item-left">
-                <a class="export__link" href="">エクスポート</a>
+                <a class="export__link" href="/export">エクスポート</a>
             </div>
             <div class="action__item-right">
                 <p>{{ $contacts->onEachSide(1)->links('vendor.pagination.admin') }}</p>

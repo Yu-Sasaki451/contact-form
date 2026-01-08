@@ -24,4 +24,5 @@ Route::delete('/delete', [ContactController::class, 'destroy']);
 
 Route::get('/admin', [UserController::class, 'showAdmin'])->middleware('auth');
 Route::get('/search', [UserController::class, 'showAdmin'])->middleware('auth');
-Route::get('/search/reset', [UserController::class, 'resetAdmin'])->middleware('auth');
+Route::get('/reset', [UserController::class, 'resetAdmin'])->middleware('auth');
+Route::get('/export', [UserController::class, 'export'])->middleware('auth');
