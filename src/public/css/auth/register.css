@@ -63,7 +63,7 @@ a {
     border-radius: 3px;
 }
 
-register__label {
+.register__label {
     margin: 0 0 4px;
     color: rgb(115, 104, 104);
 }

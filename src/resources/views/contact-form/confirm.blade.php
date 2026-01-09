@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-    <div class="confirm-form">
-        <div class="confirm-form__header">
-            <h2 class="confirm-form__logo">Confirm</h2>
+    <div class="confirm">
+        <div class="confirm__header">
+            <h2 class="confirm__logo">Confirm</h2>
         </div>
-        <div class="confirm-form__content">
+        <div class="confirm__form">
             <form action="/store" method="post">
                 @csrf
-                <table class="confirm-form__table">
+                <table class="table">
                     <tr class="table-row">
                         <th class="table-row__header" scope="row">
                             お名前
@@ -81,8 +81,8 @@
                 @foreach ($contacts as $key => $value)
                     <input type="hidden" name="contacts[{{ $key }}]" value="{{ $value }}">
                 @endforeach
-                <div class="confirm-form__button">
-                    <button class="confirm-form__button--submit" type="submit">送信</button>
+                <div class="confirm__button">
+                    <button class="confirm__button--submit" type="submit">送信</button>
                     <a class="back__link" href="/">修正</a>
                 </div>
             </form>

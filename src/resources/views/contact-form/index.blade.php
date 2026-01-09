@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="contact-form">
-        <div class="contact-form__header">
-            <h2 class="contact-form__logo">Contact</h2>
+    <div class="contact">
+        <div class="contact__header">
+            <h2 class="contact__logo">Contact</h2>
         </div>
-        <div class="contact-form__content">
+        <div class="contact__content">
             <form class="form" action="/confirm" method="post">
                 @csrf
                 <div class="form__group">
@@ -23,16 +23,16 @@
                         <div class="form__input-name">
                             <input id="last_name" name="last_name" type="text"
                             placeholder="例：山田" value="{{ old('last_name',$contacts['last_name'] ?? '') }}">
-                            <p class="form__error">
+                            <div class="form__error">
                                 @error('last_name') {{ $message }} @enderror
-                            </p>
+                            </div>
                         </div>
                         <div class="form__input-name">
                             <input id="first_name" name="first_name" type="text"
                             placeholder="例：太郎" value="{{ old('first_name',$contacts['first_name'] ?? '') }}">
-                            <p class="form__error">
+                            <div class="form__error">
                                 @error('first_name') {{ $message }} @enderror
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
                             <input type="radio" name="gender" value="3" {{ $selectedGender === '3' ? 'checked' : '' }}>
                             <span>その他</span>
                         </div>
-                        <p class="form__error">
+                        <div class="form__error">
                             @error('gender') {{ $message }} @enderror
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -73,9 +73,9 @@
                         <div class="form__input-text">
                             <input id="email" name="email" type="email"
                             placeholder="例：test@forexample.com" value="{{ old('email',$contacts['email'] ?? '') }}">
-                            <p class="form__error">
+                            <div class="form__error">
                                 @error('email') {{ $message }} @enderror
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,11 +101,16 @@
                             <input class="input__tel" id="tel_3" name="tel_3" type="tel"
                             placeholder="6789" value="{{ old('tel_3',$contacts['tel_3'] ?? '') }}">
                         </div>
-                        <p class="form__error">
-                            @error('tel_1') {{ $message }} @enderror
-                            @error('tel_2') {{ $message }} @enderror
-                            @error('tel_3') {{ $message }} @enderror
-                        </p>
+                        <div class="form__error">
+                            @if ($errors->has('tel_1'))
+                                {{ $errors->first('tel_1') }}
+                            @elseif ($errors->has('tel_2'))
+                                {{ $errors->first('tel_2') }}
+                            @elseif ($errors->has('tel_3'))
+                                {{ $errors->first('tel_3') }}
+                            @endif
+                        </div>
+
                     </div>
                 </div>
                 <div class="form__group">
@@ -119,9 +124,9 @@
                         <div class="form__input-text">
                             <input id="address" name="address" type="text"
                             placeholder="北海道札幌市白石区菊水1-2-3" value="{{ old('address',$contacts['address'] ?? '') }}">
-                            <p class="form__error">
+                            <div class="form__error">
                                 @error('address') {{ $message }} @enderror
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -162,9 +167,9 @@
                         </option>
                         @endforeach
                     </select>
-                    <p class="form__error">
+                    <div class="form__error">
                         @error('category_id') {{ $message }} @enderror
-                    </p>
+                    </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -178,9 +183,9 @@
                         <div class="form__input-textarea">
                             <textarea id="detail" name="detail" type="text"
                             placeholder="お問い合わせ内容をご入力ください">{{ old('detail',$contacts['detail'] ?? '') }}</textarea>
-                            <p class="form__error">
+                            <div class="form__error">
                                 @error('detail') {{ $message }} @enderror
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>

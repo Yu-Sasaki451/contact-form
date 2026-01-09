@@ -2,22 +2,22 @@
     box-sizing: border-box;
 }
 
-.contact-form {
+.contact {
     width: 1000px;
     margin: 0 auto;
 }
 
-.contact-form__header {
+.contact__header {
     width: 300px;
     margin: 0 auto;
     text-align: center;
 }
 
-.contact-form__logo {
+.contact__logo {
     color: rgb(115, 104, 104);
 }
 
-.contact-form__content {
+.contact__content {
     width: 700px;
     margin: 0 auto;
     padding: 8px 12px;
@@ -75,7 +75,8 @@ input,select,textarea {
 
 .form__error {
     color: red;
-    font-size: 10px;
-    min-height: 14px;
-    display: block;
+    height: 20px;
+    text-align: left;
+    margin-top: 5px;
+    font-size: 14px;
 }

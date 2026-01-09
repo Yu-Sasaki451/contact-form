@@ -5,76 +5,80 @@
 @endsection
 
 @section('nav')
-<form class="form__logout" action="/logout" method="post">
+<form class="auth-nav" action="/logout" method="post">
     @csrf
-    <button class="header-nav__button">logout</button>
+    <button class="auth-nav__button">logout</button>
 </form>
 @endsection
 
 @section('content')
 <div class="admin-wrapper">
     <div class="admin-wrapper__header">
-        <h2>Admin</h2>
+        <h2 class="admin-wrapper__logo">Admin</h2>
     </div>
 
-    <div class="admin-search">
-        <form action="/search" method="get">
-            <input type="hidden" name="search" value="1">
-            <div class="admin-search__item">
-                <div class="admin-search__item-flex">
-                    <div class="search__item-name">
-                        <input class="search__input" type="text"  name="keyword"
+    <div class="search">
+        <form  class="search__form" action="/search" method="get">
+            <input class="search__input--hidden" type="hidden" name="search" value="1">
+            <div class="search__fields">
+                <div class="search__fields--flex">
+                    <div class="search__field--name">
+                        <input class="search__input--name" type="text"  name="keyword"
                         value="{{ $keyword ?? '' }}"placeholder="名前やメールアドレスを入力してください">
                     </div>
-                    <div class="search__item-gender">
-                        <select class="search__select" name="gender" id="gender">
-                            <option value="" {{ request('gender','') === '' ? 'selected' : '' }}>性別</option>
-                            <option value="1" {{ request('gender') === '1' ? 'selected' : '' }}>男性</option>
-                            <option value="2" {{ request('gender') === '2' ? 'selected' : '' }}>女性</option>
-                            <option value="3" {{ request('gender') === '3' ? 'selected' : '' }}>その他</option>
+                    <div class="search__field--gender">
+                        <select class="search__select--gender" class="search__select" name="gender" id="gender">
+                            <option class="search__option--gender"
+                                value="" {{ request('gender','') === '' ? 'selected' : '' }}>性別</option>
+                            <option class="search__option--gender"
+                                value="1" {{ request('gender') === '1' ? 'selected' : '' }}>男性</option>
+                            <option class="search__option-gender"
+                                value="2" {{ request('gender') === '2' ? 'selected' : '' }}>女性</option>
+                            <option class="search__option--gender"
+                                value="3" {{ request('gender') === '3' ? 'selected' : '' }}>その他</option>
                         </select>
                     </div>
-                    <div class="search__item-category">
-                        <select class="search__select" name="category_id" id="category_id">
-                            <option value="" {{ $category_id === '' ? 'selected' : '' }}>
+                    <div class="search__field--category">
+                        <select class="search__select--category" name="category_id" id="category_id">
+                            <option class="search__option--category" value="" {{ $category_id === '' ? 'selected' : '' }}>
                                 お問い合わせの種類
                             </option>
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}"
+                                <option class="search__option--category" value="{{ $category->id }}"
                                     {{ $category_id === (string) $category->id ? 'selected' : '' }}>
                                     {{ $category->content }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="search__item-date">
-                        <input class="search__input" name="date" type="date" value="{{ $date }}" placeholder="年/月/日">
+                    <div class="search__field--date">
+                        <input class="search__input--date" name="date" type="date" value="{{ $date }}" placeholder="年/月/日">
                     </div>
-                    <div class="search__item-button">
-                        <button class="search__button">検索</button>
+                    <div class="search__field--searching">
+                        <button class="search__button--searching">検索</button>
                     </div>
-                    <div class="search__item-reset">
-                        <a class="search__button" href="/reset">リセット</a>
+                    <div class="search__field--reset">
+                        <a class="search__button--reset" href="/reset">リセット</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="admin-action">
-        <div class="action__item-flex">
-            <div class="action__item-left">
+    <div class="actions">
+        <div class="action__fields--flex">
+            <div class="action__field--left">
                 <a class="export__link" href="/export">エクスポート</a>
             </div>
-            <div class="action__item-right">
+            <div class="action__field--right">
                 <p>{{ $contacts->onEachSide(1)->links('vendor.pagination.admin') }}</p>
             </div>
         </div>
     </div>
 
-    <div class="admin-table">
-        <form class="form" action="">
-            <table class="table__content">
+    <div class="details">
+        <form class="detail__form" action="">
+            <table class="detail-table">
                 <tr class="table__head-row">
                     <th>お名前</th>
                     <th>性別</th>
@@ -90,12 +94,12 @@
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->category->content }}</td>
                     <td>
-                        <a class="button__detail" href="#modal-{{ $contact->id }}">詳細</a>
+                        <a class="table__button--detail" href="#modal-{{ $contact->id }}">詳細</a>
                     </td>
                 </tr>
 
                 @push('modals')
-                <div id="modal-{{ $contact->id }}" class="modal">
+                <div class="modal" id="modal-{{ $contact->id }}" class="modal">
                     <a href="#" class="modal__backdrop" aria-label="閉じる"></a>
 
                     <div class="modal__panel" role="dialog" aria-modal="true">

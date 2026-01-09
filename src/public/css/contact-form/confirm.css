@@ -2,28 +2,28 @@
     box-sizing: border-box;
 }
 
-.confirm-form {
+.confirm {
     width: 1000px;
     margin: 0 auto;
 }
 
-.confirm-form__header {
+.confirm__header {
     width: 300px;
     margin: 0 auto;
     text-align: center;
 }
 
-.confirm-form__logo {
+.confirm__logo {
     color: rgb(115, 104, 104);
 }
 
-.confirm-form__content {
+.confirm__form {
     width: 700px;
     margin: 0 auto;
     padding: 8px 12px;
 }
 
-.confirm-form__table {
+.table {
     width: 100%;
     margin: 0 auto;
     border: 1px solid gainsboro;
@@ -47,7 +47,7 @@
     color: rgb(115, 104, 104);
 }
 
-.confirm-form__button {
+.confirm__button {
     width: 250px;
     display: flex;
     justify-content: space-around;
@@ -57,7 +57,7 @@
     margin-top: 50px;
 }
 
-.confirm-form__button--submit {
+.confirm__button--submit {
     width: 80px;
     background-color: rgb(194, 182, 182);
     color: rgb(254, 255, 240);

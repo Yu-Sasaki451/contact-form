@@ -60,7 +60,7 @@ a {
     margin-bottom: 20px;
 }
 
-login__input {
+.login__input {
     width: 300px;
     height: 35px;
     background-color: rgba(241, 241, 241, 0.865);
@@ -68,7 +68,7 @@ login__input {
     border-radius: 3px;
 }
 
-login__label {
+.login__label {
     margin: 0 0 4px;
     color: rgb(115, 104, 104);
 }

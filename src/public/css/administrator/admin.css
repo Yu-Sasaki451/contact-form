@@ -21,27 +21,30 @@ a {
     color: rgb(127, 91, 91);
 }
 
-.header__nav button {
+.auth-nav__button {
     border: none;
     padding: 4px 20px;
     font-size: 16px;
     color: rgb(196, 169, 169);
     cursor: pointer;
+    background: transparent;
 }
 
 
 
 /*　　 検索条件の行  */
 
-.admin-search__item-flex {
+.search__fields--flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 40px;
 }
 
-.search__input,
-.search__select {
+.search__input--name,
+.search__select--gender,
+.search__select--category,
+.search__input--date {
     height: 30px;
     background-color: rgba(241, 241, 241, 0.865);
     border-radius: 3px;
@@ -50,18 +53,19 @@ a {
     border: 1px solid rgba(222, 195, 195, 0.4);
 }
 
-.search__item-name .search__input {
+.search__input--name {
     width: 260px;
     font-size: 12px;
     text-align: center;
 }
 
-.search__item-gender .search__select,
-.search__item-category .search__select {
+.search__select--gender,
+.search__select--category {
     padding: 0 12px;
 }
 
-.search__button {
+.search__button--searching,
+.search__button--reset {
     height: 30px;
     display: inline-flex;
     align-items: center;
@@ -72,15 +76,19 @@ a {
     background-color: rgb(196, 169, 169);
     color: antiquewhite;
     border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.search__item-button .search__button {
+.search__button--searching {
     background-color: rgb(127, 91, 91);
 }
 
+
+
 /*  エクスポートとページネーションの行  */
 
-.action__item-flex {
+.action__fields--flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,25 +106,27 @@ a {
     border-radius: 3px;
 }
 
+
+
 /*　　テーブル  */
 
-.table__content {
+.detail-table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     border: 2px solid rgba(222, 195, 195, 0.4);
 }
 
-.table__content th,
-.table__content td {
+.detail-table th,
+.detail-table td {
     padding: 12px 25px;
     text-align: left;
     vertical-align: middle;
     border-bottom: 2px solid rgba(222, 195, 195, 0.4);
 }
 
-.table__content th:last-child,
-.table__content td:last-child {
+.detail-table th:last-child,
+.detail-table td:last-child {
     text-align: right;
 }
 
@@ -138,13 +148,16 @@ td {
     background-color: rgb(127, 91, 91);
 }
 
-.button__detail {
+.table__button--detail {
     padding: 6px 16px;
     background-color: rgba(241, 241, 241, 0.865);
     border: 1px solid rgba(222, 195, 195, 0.6);
     border-radius: 3px;
     color: rgba(222, 195, 195, 0.6);
+    text-decoration: none;
 }
+
+
 
 /*   ページネーション設定   */
 
@@ -168,13 +181,11 @@ td {
     border-radius: 3px;
 }
 
-
 .admin-pagination__item.is-active {
     background: #6f625a;
     border-color: #6f625a;
     color: #fff;
 }
-
 
 
 

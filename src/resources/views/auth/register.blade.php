@@ -5,7 +5,7 @@
 @endsection
 
 @section('nav')
-<form class="auth-nav" action="/register" method="get">
+<form class="auth-nav" action="/login" method="get">
     <button class="auth-nav__button">login</button>
 </form>
 @endsection
